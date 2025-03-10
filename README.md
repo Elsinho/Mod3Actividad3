@@ -2,4 +2,11 @@ Aplicar el taller de Contract testing al Caso de Estudio del Proyecto Final de m
 
 Se realizo 3 solicitudes desde el consumidor y se verifico desde el provider. Para crear el cliente y obtener por nombre del cliente, asi como tambien realizar una excepcion si el cliente no existe por nombre.
 
+Abriendo la consola para ejecutar el siguiente comando:
+Para Node (npm)
+
+```
+npm test
+```
+
 ![Logo del Proyecto](img/prueba-test.png)
