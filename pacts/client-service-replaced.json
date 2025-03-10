@@ -1,0 +1,137 @@
+{
+	"consumer": {
+		"name": "client"
+	},
+	"interactions": [
+		{
+			"description": "datos para crear un cliente",
+			"providerStates": [
+				{
+					"name": "crear cliente"
+				}
+			],
+			"request": {
+				"body": {
+					"id": "ce4306ef-1b2d-4fe6-9142-d295f05cbc62",
+					"nombre": "Prueba",
+					"telefono": "1234567890",
+					"direccion": "Calle Falsa 123"
+				},
+				"headers": {
+					"Accept": "application/json",
+					"Content-Type": "application/json"
+				},
+				"method": "POST",
+				"path": "/clientes"
+			},
+			"response": {
+				"body": {
+					"estado": "Exito",
+					"mensaje": "Se realizo el guardado correctamente",
+					"data": {
+						"nombre": "Prueba",
+						"telefono": "123456789",
+						"direccion": "Calle Falsa 123"
+					}
+				},
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"matchingRules": {
+					"body": {
+						"$": {
+							"combine": "AND",
+							"matchers": [
+								{
+									"match": "type"
+								}
+							]
+						}
+					},
+					"header": {},
+					"status": {}
+				},
+				"status": 201
+			}
+		},
+		{
+			"description": "Un body vacío",
+			"providerStates": [
+				{
+					"name": "realizar una consulta de cliente por nombre"
+				}
+			],
+			"request": {
+				"method": "GET",
+				"path": "/clientes/nombre/Prueba"
+			},
+			"response": {
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"matchingRules": {
+					"body": {
+						"$": {
+							"combine": "AND",
+							"matchers": [
+								{
+									"match": "type"
+								}
+							]
+						}
+					},
+					"header": {},
+					"status": {}
+				},
+				"status": 200
+			}
+		},
+		{
+			"description": "Un body vacío",
+			"providerStates": [
+				{
+					"name": "realizar una consulta de cliente por nombre - Excepción"
+				}
+			],
+			"request": {
+				"method": "GET",
+				"path": "/clientes/nombre/Prueba2"
+			},
+			"response": {
+				"headers": {
+					"Content-Type": "application/json"
+				},
+				"matchingRules": {
+					"body": {
+						"$": {
+							"combine": "AND",
+							"matchers": [
+								{
+									"match": "type"
+								}
+							]
+						}
+					},
+					"header": {},
+					"status": {}
+				},
+				"status": 404
+			}
+		}
+	],
+	"metadata": {
+		"pact-js": {
+			"version": "13.2.0"
+		},
+		"pactRust": {
+			"ffi": "0.4.22",
+			"models": "1.2.3"
+		},
+		"pactSpecification": {
+			"version": "3.0.0"
+		}
+	},
+	"provider": {
+		"name": "client-service"
+	}
+}
